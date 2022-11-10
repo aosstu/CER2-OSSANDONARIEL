@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%block title%}{{titulo}}{%endblock%}
+{%block header%}
+
+{%endblock%}
+{%block content%}
+<div class="container">
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div >
+
+                    <h1 >Correspondencia Recibida:</h1>
+                </div>
+                <form class="d-flex" role="search" name="search">
+                    <input class="form-control me-2" type="search" placeholder="Filtrar por Número de Residencia..." name="buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Filtrar</button>
+                  </form>
+               <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        
+                        <tr>
+                            <th>#</th>
+                            <th>Tipo</th>           
+                        <th>N°Residencia</th>
+                        <th>Nombre Destinatario</th>
+                        <th>Telefono Destinatario</th>
+                        <th>Estado</th>
+                        <th>Comentario</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for c in correspondencia %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{c.tipo}}</td>
+                                <td>{{c.nResidencia}}</td>
+                                <td>{{c.nDestinatario}}</td>
+                                <td>{{c.tDestinatario}}</td>
+                                <td>{{c.estado}}</td>
+                                <td>{{c.comentario}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
